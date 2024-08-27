@@ -1,0 +1,57 @@
+version: "3.1"
+
+stories:
+- story: happy path
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_great
+    - action: utter_happy
+
+- story: sad path 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_happy
+
+- story: sad path 2
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_cheer_up
+    - action: utter_did_that_help
+    - intent: deny
+    - action: utter_goodbye
+
+- story: ask university rank
+  steps:
+    - intent: ask_university_rank
+    - action: utter_ask_university_rank
+    - action: action_university_rank
+
+# - story: ask university location
+#   steps:
+#     - intent: ask_university_location
+#     - action: utter_ask_university_location
+#     - action: action_university_location
+
+# - story: ask university fee
+#   steps:
+#     - intent: ask_university_fee
+#     - action: utter_ask_university_fee
+#     - action: action_university_fee
+
+- story: say goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+    - intent: bot_challenge
+    - action: utter_iamabot

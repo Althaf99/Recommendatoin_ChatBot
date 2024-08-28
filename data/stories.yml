@@ -55,3 +55,15 @@ stories:
   steps:
     - intent: bot_challenge
     - action: utter_iamabot
+
+- story: interactive_story_1
+  steps:
+  - intent: ask_university_rank
+    entities:
+    - university: University
+  - slot_was_set:
+    - university: University
+  - action: utter_ask_university_rank
+  - action: action_university_rank
+  - intent: affirm
+  - action: utter_happy

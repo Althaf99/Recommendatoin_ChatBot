@@ -1,5 +1,4 @@
 version: "3.1"
-
 nlu:
 - intent: greet
   examples: |
@@ -16,7 +15,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-
 - intent: goodbye
   examples: |
     - cu
@@ -29,7 +27,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -38,7 +35,7 @@ nlu:
     - of course
     - that sounds good
     - correct
-
+    - exit
 - intent: deny
   examples: |
     - no
@@ -48,7 +45,6 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -65,7 +61,6 @@ nlu:
     - so so perfect
     - so good
     - so perfect
-
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -82,36 +77,15 @@ nlu:
     - extremly sad
     - so saad
     - so sad
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-    
 - intent: ask_university_rank
   examples: |
     - What is the rank of [Cambridge University](university)?
     - What is the rank of [Newcastle University](university)?
     - Can you tell me the rank of [Harvard University](university)?
-
-
-
-# - intent: ask_university_rank
-#   examples: |
-#     - What is the rank of [Harvard University](university)?
-#     - Can you tell me the rank of [Oxford](university)?
-#     - What's the ranking of [MIT](university)?
-
-# - intent: ask_university_location
-#   examples: |
-#     - Where is [Stanford University](university) located?
-#     - Tell me the location of [Cambridge](university)?
-#     - Which city is [Yale](university) in?
-
-# - intent: ask_university_fee
-#   examples: |
-#     - How much is the fee for [Columbia University](university)?
-#     - What is the tuition fee at [Princeton](university)?
-#     - Tell me the fee structure of [UCLA](university)?
+    - What is the rank of the Swansea [University](university)?

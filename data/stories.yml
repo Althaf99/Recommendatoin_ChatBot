@@ -1,69 +1,33 @@
 version: "3.1"
 
 stories:
-- story: happy path
+
+- story: asking university rank
   steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: mood_great
-    - action: utter_happy
+  - intent: find_university_rank
+  - action: utter_ask_university_info
+  - intent: university_info
+  - action: utter_finding_University_rank
+  - action: action_find_university_rank
+  # - slot_was_set:
+  #   - university_rank_found: True
+  - action: utter_ask_additional_informations
+  - action: utter_you_are_welcome
 
-- story: sad path 1
+- story: Find universities by region
   steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: mood_unhappy
-    - action: utter_cheer_up
-    - action: utter_did_that_help
-    - intent: affirm
-    - action: utter_happy
+  - intent: ask_universities_in_region
+  - action: action_find_universities_by_region
 
-- story: sad path 2
+  
+- story: current status
   steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: mood_unhappy
-    - action: utter_cheer_up
-    - action: utter_did_that_help
-    - intent: deny
-    - action: utter_goodbye
+    - intent: currentStatus
+    - action: utter_current_status
 
-- story: ask university rank
-  steps:
-    - intent: ask_university_rank
-    - action: utter_ask_university_rank
-    - action: action_university_rank
 
-# - story: ask university location
-#   steps:
-#     - intent: ask_university_location
-#     - action: utter_ask_university_location
-#     - action: action_university_location
-
-# - story: ask university fee
-#   steps:
-#     - intent: ask_university_fee
-#     - action: utter_ask_university_fee
-#     - action: action_university_fee
-
-- story: say goodbye
-  steps:
-    - intent: goodbye
-    - action: utter_goodbye
 
 - story: bot challenge
   steps:
     - intent: bot_challenge
     - action: utter_iamabot
-
-- story: interactive_story_1
-  steps:
-  - intent: ask_university_rank
-    entities:
-    - university: University
-  - slot_was_set:
-    - university: University
-  - action: utter_ask_university_rank
-  - action: action_university_rank
-  - intent: affirm
-  - action: utter_happy

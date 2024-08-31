@@ -1,0 +1,18 @@
+{
+  "lookup": {
+    "eJyLri7OyS8ptlKoLs3LLEstKs4sqYwvSszLjk/LL81LsVKINtQz0FEw0DOIra2NBQCk7BCb": "action_listen",
+    "eJyNjNEJwzAMBVfRACa4v14lBOEmSivqysGSA8F49xraAfr3Du7e3DRl0wCtCp9UlO3CEuWFe66yBZhvk3fgJ7/07qAdhU6Mq3GW0XwHSnxTgB8kViMZ7v/HDqpSGSrLSC3APRuuz5gSyYN6Xz75fTzV": "utter_iamabot",
+    "eJytjUEKwzAMBL+iB5jgXv2VEISaqq2oIxdbDhSTv8fQ3pNDb7uwszO2EpOVAK2qrJyL2Acz6QvvqeotwHgZvAM/+GnbHLR35hVpNknamW9ApYUD/EqUYqx9e/7YQS2c+1S0oxbgmgznJ8XI+uAjbzXjjEILdeyv3mkHDL9pEw==": "action_listen",
+    "eJyNjEEKwzAMBL+iB5jgXv2VEIRJ1SKSysGSA8X47xWk9NzbLszM3HUvpgl6Ez6pKtsba5YNH6XJPcF8m2KAOMVljAD9qHRiXo2LuHMNlPyiBN+zsxqJs/+HAzSl6iiLq+Yp3fCnMSmyYKWn58dYPjmgQm8=": "action_find_universities_by_region",
+    "eJy1jksKwzAMRK+iA5jgbn2VEITbKEUklYtlB4LJ3SPoB7rLprsZmPeYvumSigZoVXilrFw2zFFmnFKVMUB/6bwD3/lh3x20Z6YV461wEmNeASU+KMC7LKyFxLbnxQ6qUrYpi6HFVDrjF2NSZMFMd9OfPDGxjL+G6/Yx/O3ZcADxhHz7": "action_listen",
+    "eJyNjEsKwzAMBa+iA5jgbn2NLkMwJlVBNJWLPoFifPcK2gN0Nw9m3jr06KYFhjOdKEr2rtL4Ue/d+VZgvSw5QV7yNmeC8RI8a9uNOkfzhcrtiQV+4yA15HD/P07gihIqcaRWYHeRgKs1c51z+wD7vz0V": "utter_current_status",
+    "eJytjUsKwzAMRK+iA5jgbn2NLkMQJlXBNJGDPoFicvcakn276G4G5s0bmy7VNEFzLjuJFnujZH7hszo/Eoy3IQaIQ5yOI0DbhHbMs5XKnTkDcl4pwVWWokbct78fB3Al6dPCHbUEs4v0cLdsrt+8bkaCF4J6Mv/UTx9P8Gy8": "action_listen",
+    "eJyNjEEKhDAMRa+SAxTpbHsVkVDGCEEnlSYVpPTuFnTlanb/wXt/rLol0wC1CB+Ule3EHGXFJRWZA4yfwTvwg59ac1D3TAfGr3GS3twDJf4owAMbq5F09/9jB0Upd5WlpxZgYZnx1bU2XbGTP/s=": "utter_ask_university_info",
+    "eJy1jsEKwzAMQ3/FHxBKds2vlGLC6oBp54zYKYzQf1+gPZRdtstuEuhJGpuu2TRAq8IbFWV7YYmyYMpV5gDjbfAO/OCnfXfQnoU2jHfjLJ05BEp8UIDTrKxG0rO/FzuoSqVHWTpqARLLjB/ct/lqRgWjLleQJeV/XJne3wx0jQ==": "action_listen",
+    "eJy9kEEKwzAMBL+iB5jgXv2VEIRpFBBJ5WLJgWL89xrSQ8mlPZTeVrAjrXasuiXTALUI75SV7YE5yopLKjIHGC+Dd+AHP7XmoN4z7Rivxkk6cwiUeKMAr2FjNZLu/X6xg6KUu5WloxZgYZnxxH06X8woY9T1HWRZ0v+j/LCJ8y9tegJWmaHt": "utter_finding_University_rank",
+    "eJy9kMEKwjAMhl8lD1BGvfY9PI0RikslbKbSpgMZe3crepBe3GF4S+D/ki/p1zxHzQ7WIrxQyqwPTF4mDLHI6KA/ddaA7eywbQbWe6IF/UU5SmXeBYq/kYNPM3NWkprdP9hAyZRqlKWi6iCwjNhwv9YXVUro8/QNsoT4f5UDP9HesusJL2eWK54b7WNNhifhrtX/": "action_find_university_rank",
+    "eJy9kEEKwzAMBL+iB5jgXP2PnkIQpnGKSCoXWw6UkL/HpTkUU6gPJTct7Eqj7dY4e4kG1sS0uBBJnhgsTzj6xIOBrm20At3oftsUrI/gFrRXIc858x6Q7d0ZOMRMURxnb/1iBSm6kK3EOSoGRuIBi9yv80nEBbRx+gwSj/58lD82Uf5SVcKLmfiGlwL7TJJDfK2vkqOt4+h3Y2cJTQ==": "utter_ask_additional_informations",
+    "eJy9kkEKgzAQRa8yBxDRbe7RlcgQmlgGdVKSiVDEu5u0LooU6kLc5ZN5ycsnzRwGJ0HBHJkm6wPJC73mHjsX2Sho6rIqoCqrdlkKmJ/eTqjvQo4T81kg69Eq2MJAQSyn2eMHFxCD9WmUOKGioCM2uOP+XR9FrEcd+m+QuHPXq5zYxP4th0rIzsQPvO20rzTZws/6DnrU5zWSv4U2hvKGHt6gH3VO4WSbdgWqTD8E": "utter_you_are_welcome",
+    "eJzFkk0KgzAQRq+SA4joNvfoSmQIZiyDcVLyYyni3Zu0LooU6kLsLh+Zl7x8pJm9scFLMUemCZ2n8ACneIDeRtZSNHVZFaIqq3ZZCjHfHE6gukCWE/NeAKsRpViDIR+Q0+z+gwsRPbo0SpzQIEVPrGHD/bo+hoAOlB8+QeLenq9yYBPbt+wqITsTX+Gy0T7TZA1f69vpUR/XSP4WSmvKG8q8QDeqnPwfbB42gnIIdzSdHfFgg/YJN89vyw==": "action_listen"
+  }
+}

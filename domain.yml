@@ -1,43 +1,60 @@
 version: '3.1'
 intents:
-- affirm
-- ask_university_rank
 - bot_challenge
-- deny
+- currentStatus
+- find_university_rank
 - goodbye
 - greet
-- mood_great
-- mood_unhappy
+- university_info
+- ask_universities_in_region
+
 entities:
 - university
+- region
 slots:
   university:
     type: text
-    influence_conversation: false
     mappings:
     - type: from_entity
       entity: university
+  university_rank_found:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: from_intent
+        intent: find_university_rank
+        value: true
+      # - type: from_intent
+      #   intent: deny
+      #   value: false
+  region:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: region
+actions:
+- utter_greet
+- action_find_university_rank
+- action_find_universities_by_region
 responses:
   utter_greet:
-  - text: Hey! How are you?
-  utter_cheer_up:
-  - text: 'Here is something to cheer you up:'
-    image: https://i.imgur.com/nGF1K8f.jpg
-  utter_did_that_help:
-  - text: Did that help you?
-  utter_happy:
-  - text: Great, carry on!
+  - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.
   utter_goodbye:
-  - text: Bye
+  - text: Bye, See you Later.
+  utter_ask_university_info:
+  - text: Enter the univeristy name of you want to find the rank
+  utter_finding_University_rank:
+  - text: Give me some time to look for the rank of the {university} university
+  utter_you_are_welcome:
+  - text: You are welcome ^^
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
-  utter_ask_university_rank:
-  - text: I'm looking up the ranking for {university}.
-actions:
-- utter_ask_university_rank
-- utter_happy
-- action_university_rank
-- action_extract_university
+  - text: I am a bot, created by M.Shakir.
+  utter_ask_additional_informations:
+  - text: Hope that answers the question, Do you need any additional details?
+  utter_current_status:
+  - text: I'm good, How can i help you?.
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

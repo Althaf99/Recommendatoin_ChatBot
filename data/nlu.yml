@@ -15,6 +15,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - Hello
 - intent: goodbye
   examples: |
     - cu
@@ -27,65 +28,45 @@ nlu:
     - see you around
     - bye bye
     - see you later
-- intent: affirm
+- intent: currentStatus
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-    - exit
-- intent: deny
+    - how are you
+    - How you doing
+- intent: find_university_rank
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-- intent: mood_great
+    - I want to find a univeristy rank
+- intent: university_info
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - [Cambridge](university)
+    - [Newcastle](university)
+    - [Harvard](university)
+    - [Oxford](university)
+    - [MIT](university)
+    - [Stanford](university)
+    - [Yale](university)
+    - [Columbia University](university)
+    - [Princeton](university)
+    - [UCLA](university)
+    - [Berkeley](university)
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-- intent: ask_university_rank
+    - Who are you?
+
+- lookup: region
   examples: |
-    - What is the rank of [Cambridge University](university)?
-    - What is the rank of [Newcastle University](university)?
-    - Can you tell me the rank of [Harvard University](university)?
-    - What is the rank of the Swansea [University](university)?
+    - North America
+    - Europe
+    - Asia
+    - Africa
+    - Oceania
+
+- intent: ask_universities_in_region
+  examples: |
+    - What universities are in [any region](region)?
+    - Show me universities in [any region](region)
+    - Which universities are in [any region](region)?
+

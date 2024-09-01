@@ -5,12 +5,16 @@ intents:
 - find_university_rank
 - goodbye
 - greet
-- university_info
+# - university_info
 - ask_universities_in_region
+- ask_university_rank
+- ask_best_ranked_university
+- provide_region
 
 entities:
 - university
 - region
+- university_name
 slots:
   university:
     type: text
@@ -27,9 +31,16 @@ slots:
       # - type: from_intent
       #   intent: deny
       #   value: false
+  university_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: university_name
+
   region:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
       - type: from_entity
         entity: region
@@ -37,6 +48,10 @@ actions:
 - utter_greet
 - action_find_university_rank
 - action_find_universities_by_region
+- action_dynamic_greet
+- action_fetch_university_rank
+- action_ask_for_region
+- action_fetch_best_ranked_university
 responses:
   utter_greet:
   - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.

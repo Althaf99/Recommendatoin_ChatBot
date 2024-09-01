@@ -10,7 +10,7 @@ rules:
 - rule: Greeting anytime the user greets
   steps:
   - intent: greet
-  - action: utter_greet
+  - action: action_dynamic_greet
 
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
@@ -21,3 +21,8 @@ rules:
   steps:
     - intent: currentStatus
     - action: utter_current_status
+
+- rule: Provide university rank
+  steps:
+  - intent: ask_university_rank
+  - action: action_fetch_university_rank

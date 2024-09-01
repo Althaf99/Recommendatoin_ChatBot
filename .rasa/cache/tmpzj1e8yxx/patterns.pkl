@@ -1,0 +1,6 @@
+[
+  {
+    "name": "region",
+    "pattern": "(\\bNorth\\ America\\b|\\bEurope\\b|\\bAsia\\b|\\bAfrica\\b|\\bOceania\\b)"
+  }
+]

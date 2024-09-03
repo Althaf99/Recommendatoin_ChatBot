@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-region",
+      "2": "I-region",
+      "3": "L-region",
+      "4": "U-region",
+      "5": "B-university",
+      "6": "I-university",
+      "7": "L-university",
+      "8": "U-university",
+      "9": "B-university_name",
+      "10": "I-university_name",
+      "11": "L-university_name",
+      "12": "U-university_name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-region": 1,
+      "I-region": 2,
+      "L-region": 3,
+      "U-region": 4,
+      "B-university": 5,
+      "I-university": 6,
+      "L-university": 7,
+      "U-university": 8,
+      "B-university_name": 9,
+      "I-university_name": 10,
+      "L-university_name": 11,
+      "U-university_name": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

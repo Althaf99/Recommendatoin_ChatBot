@@ -32,22 +32,22 @@ nlu:
   examples: |
     - how are you
     - How you doing
-# - intent: find_university_rank
-#   examples: |
-#     - I want to find a univeristy rank
-# - intent: university_info
-#   examples: |
-#     - [Cambridge](university)
-#     - [Newcastle](university)
-#     - [Harvard](university)
-#     - [Oxford](university)
-#     - [MIT](university)
-#     - [Stanford](university)
-#     - [Yale](university)
-#     - [Columbia University](university)
-#     - [Princeton](university)
-#     - [UCLA](university)
-#     - [Berkeley](university)
+- intent: find_university_rank
+  examples: |
+    - I want to find a univeristy rank
+- intent: university_info
+  examples: |
+    - [Cambridge](university)
+    - [Newcastle](university)
+    - [Harvard](university)
+    - [Oxford](university)
+    - [MIT](university)
+    - [Stanford](university)
+    - [Yale](university)
+    - [Columbia University](university)
+    - [Princeton](university)
+    - [UCLA](university)
+    - [Berkeley](university)
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -113,4 +113,42 @@ nlu:
     - in [Europe](region)
     - in [North America](region)
     - in [Asia](region)
+- intent: affirm
+  examples: |
+    - Yes
+    - yes, please
+    - yup
+- intent: deny
+  examples: |
+    - no don't
+    - no
+    - no I don't want that
+
+- intent: inform
+  examples: |
+    - [afghan](cuisine) food
+    - how bout [asian oriental](cuisine)
+    - what about [indian](cuisine) food
+    - uh how about [turkish](cuisine) type of food
+    - um [english](cuisine)
+    - im looking for [tuscan](cuisine) food
+    - id like [moroccan](cuisine) food
+    - for ten people
+    - 2 people
+    - for three people
+    - just one person
+    - book for seven people
+    - 2 please
+    - nine people
+
+
+- intent: request_restaurant
+  examples: |
+    - im looking for a restaurant
+    - can i get [swedish](cuisine) food in any area
+    - a restaurant that serves [caribbean](cuisine) food
+    - id like a restaurant
+    - im looking for a restaurant that serves [mediterranean](cuisine) food
+    - can i find a restaurant that serves [chinese](cuisine)
+
 

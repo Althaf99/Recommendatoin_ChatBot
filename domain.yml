@@ -1,127 +1,157 @@
+# version: '3.1'
+# intents:
+# - bot_challenge
+# - currentStatus
+# - find_university_rank
+# - goodbye
+# - greet
+# - university_info
+# - ask_universities_in_region
+# - ask_university_rank
+# - ask_best_ranked_university
+# - provide_region
+# - request_restaurant
+# - affirm
+# - deny
+# - inform
+
+# entities:
+# - university
+# - region
+# - university_name
+# - cuisine
+# - number
+# slots:
+#   university:
+#     type: text
+#     mappings:
+#     - type: from_entity
+#       entity: university
+#   university_rank_found:
+#     type: bool
+#     initial_value: false
+#     mappings:
+#       - type: from_intent
+#         intent: find_university_rank
+#         value: true
+#       # - type: from_intent
+#       #   intent: deny
+#       #   value: false
+#   university_name:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: university_name
+#   cuisine:
+#     type: text
+#     mappings:
+#     - type: from_entity
+#       entity: cuisine
+#   num_people:
+#     type: float
+#     mappings:
+#     - type: from_entity
+#       entity: number
+#   outdoor_seating:
+#     type: bool
+#     mappings:
+#     - type: from_intent
+#       intent: affirm
+#       value: true
+#       conditions:
+#        - active_loop: restaurant_form
+#          requested_slot: outdoor_seating
+#     - type: from_intent
+#       intent: deny
+#       value: false
+#       conditions:
+#       - active_loop: restaurant_form
+#         requested_slot: outdoor_seating
+
+#   region:
+#     type: text
+#     influence_conversation: false
+#     mappings:
+#       - type: from_entity
+#         entity: region
+# actions:
+# - utter_greet
+# - action_find_university_rank
+# - action_find_universities_by_region
+# - action_dynamic_greet
+# - action_fetch_university_rank
+# - action_ask_for_region
+# - action_fetch_best_ranked_university
+# responses:
+#   utter_greet:
+#   - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.
+#   utter_goodbye:
+#   - text: Bye, See you Later.
+#   utter_ask_university_info:
+#   - text: Enter the univeristy name of you want to find the rank
+#   utter_finding_University_rank:
+#   - text: Give me some time to look for the rank of the {university} university
+#   utter_you_are_welcome:
+#   - text: You are welcome ^^
+#   utter_iamabot:
+#   - text: I am a bot, created by M.Shakir.
+#   utter_ask_additional_informations:
+#   - text: Hope that answers the question, Do you need any additional details?
+#   utter_current_status:
+#   - text: I'm good, How can i help you?.
+#   utter_ask_cuisine:
+#     - text: "What cuisine?"
+#   utter_ask_num_people:
+#     - text: "How many people?"
+#   utter_ask_outdoor_seating:
+#     - text: "Do you want to sit outside?"
+#   utter_submit:
+#   - text: "All done!"
+#   utter_slots_values:
+#   - text: "I am going to run a restaurant search using the following parameters:\n
+#             - cuisine: {cuisine}\n
+#             - num_people: {num_people}\n
+#             - outdoor_seating: {outdoor_seating}"
+
+
+# forms:
+#   restaurant_form:
+#     required_slots:
+#         - cuisine
+#         - num_people
+#         - outdoor_seating
+  
+# session_config:
+#   session_expiration_time: 60
+#   carry_over_slots_to_new_session: true
+
+
+
+
+
 version: '3.1'
 intents:
+- greet
+- goodbye
 - bot_challenge
 - currentStatus
-- find_university_rank
-- goodbye
-- greet
-- university_info
-- ask_universities_in_region
-- ask_university_rank
-- ask_best_ranked_university
-- provide_region
-- request_restaurant
 - affirm
 - deny
-- inform
 
-entities:
-- university
-- region
-- university_name
-- cuisine
-- number
-slots:
-  university:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: university
-  university_rank_found:
-    type: bool
-    initial_value: false
-    mappings:
-      - type: from_intent
-        intent: find_university_rank
-        value: true
-      # - type: from_intent
-      #   intent: deny
-      #   value: false
-  university_name:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: university_name
-  cuisine:
-    type: text
-    mappings:
-    - type: from_entity
-      entity: cuisine
-  num_people:
-    type: float
-    mappings:
-    - type: from_entity
-      entity: number
-  outdoor_seating:
-    type: bool
-    mappings:
-    - type: from_intent
-      intent: affirm
-      value: true
-      conditions:
-       - active_loop: restaurant_form
-         requested_slot: outdoor_seating
-    - type: from_intent
-      intent: deny
-      value: false
-      conditions:
-      - active_loop: restaurant_form
-        requested_slot: outdoor_seating
-
-  region:
-    type: text
-    influence_conversation: false
-    mappings:
-      - type: from_entity
-        entity: region
 actions:
-- utter_greet
-- action_find_university_rank
-- action_find_universities_by_region
 - action_dynamic_greet
-- action_fetch_university_rank
-- action_ask_for_region
-- action_fetch_best_ranked_university
 responses:
   utter_greet:
   - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.
   utter_goodbye:
   - text: Bye, See you Later.
-  utter_ask_university_info:
-  - text: Enter the univeristy name of you want to find the rank
-  utter_finding_University_rank:
-  - text: Give me some time to look for the rank of the {university} university
-  utter_you_are_welcome:
-  - text: You are welcome ^^
   utter_iamabot:
   - text: I am a bot, created by M.Shakir.
-  utter_ask_additional_informations:
-  - text: Hope that answers the question, Do you need any additional details?
   utter_current_status:
   - text: I'm good, How can i help you?.
-  utter_ask_cuisine:
-    - text: "What cuisine?"
-  utter_ask_num_people:
-    - text: "How many people?"
-  utter_ask_outdoor_seating:
-    - text: "Do you want to sit outside?"
-  utter_submit:
-  - text: "All done!"
-  utter_slots_values:
-  - text: "I am going to run a restaurant search using the following parameters:\n
-            - cuisine: {cuisine}\n
-            - num_people: {num_people}\n
-            - outdoor_seating: {outdoor_seating}"
 
 
-forms:
-  restaurant_form:
-    required_slots:
-        - cuisine
-        - num_people
-        - outdoor_seating
-  
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+  carry_over_slots_to_new_session: false

@@ -1,3 +1,47 @@
+# version: "3.1"
+
+# rules:
+
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - rule: Greeting anytime the user greets
+#   steps:
+#   - intent: greet
+#   - action: action_dynamic_greet
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#     - intent: bot_challenge
+#     - action: utter_iamabot
+
+# - rule: Say 'I am good, how can i help you' anytime the user ask about the status of the bot
+#   steps:
+#     - intent: currentStatus
+#     - action: utter_current_status
+
+# - rule: Provide university rank
+#   steps:
+#   - intent: ask_university_rank
+#   - action: action_fetch_university_rank
+# - rule: activate restaurant form
+#   steps:
+#     - intent: request_restaurant   # intent that triggers form activation
+#     - action: restaurant_form      # run the form
+#     - active_loop: restaurant_form # this form is active
+# - rule: submit form
+#   condition:
+#   - active_loop: restaurant_form   # this form must be active
+#   steps:
+#     - action: restaurant_form      # run the form
+#     - active_loop: null            # the form is no longer active because it has been filled
+#     - action: utter_submit         # action to take after the form is complete
+#     - action: utter_slots_values   # action to take after the form is complete
+
+
+
 version: "3.1"
 
 rules:
@@ -17,26 +61,7 @@ rules:
     - intent: bot_challenge
     - action: utter_iamabot
 
-- rule: Say 'I am good, how can i help you' anytime the user ask about the status of the bot
+- rule: give the full detail of university when the user ask.
   steps:
-    - intent: currentStatus
-    - action: utter_current_status
-
-- rule: Provide university rank
-  steps:
-  - intent: ask_university_rank
-  - action: action_fetch_university_rank
-- rule: activate restaurant form
-  steps:
-    - intent: request_restaurant   # intent that triggers form activation
-    - action: restaurant_form      # run the form
-    - active_loop: restaurant_form # this form is active
-- rule: submit form
-  condition:
-  - active_loop: restaurant_form   # this form must be active
-  steps:
-    - action: restaurant_form      # run the form
-    - active_loop: null            # the form is no longer active because it has been filled
-    - action: utter_submit         # action to take after the form is complete
-    - action: utter_slots_values   # action to take after the form is complete
-
+    - intent: university_full_detail_request
+    - action: utter_university_full_details

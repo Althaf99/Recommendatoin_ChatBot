@@ -1,3 +1,162 @@
+# version: "3.1"
+# nlu:
+# - intent: greet
+#   examples: |
+#     - hey
+#     - hello
+#     - hi
+#     - hello there
+#     - good morning
+#     - good evening
+#     - moin
+#     - hey there
+#     - let's go
+#     - hey dude
+#     - goodmorning
+#     - goodevening
+#     - good afternoon
+#     - Hello
+# - intent: goodbye
+#   examples: |
+#     - cu
+#     - good by
+#     - cee you later
+#     - good night
+#     - bye
+#     - goodbye
+#     - have a nice day
+#     - see you around
+#     - bye bye
+#     - see you later
+# - intent: currentStatus
+#   examples: |
+#     - how are you
+#     - How you doing
+# - intent: find_university_rank
+#   examples: |
+#     - I want to find a univeristy rank
+# - intent: university_info
+#   examples: |
+#     - [Cambridge](university)
+#     - [Newcastle](university)
+#     - [Harvard](university)
+#     - [Oxford](university)
+#     - [MIT](university)
+#     - [Stanford](university)
+#     - [Yale](university)
+#     - [Columbia University](university)
+#     - [Princeton](university)
+#     - [UCLA](university)
+#     - [Berkeley](university)
+# - intent: bot_challenge
+#   examples: |
+#     - are you a bot?
+#     - are you a human?
+#     - am I talking to a bot?
+#     - am I talking to a human?
+#     - Who are you?
+
+# - lookup: region
+#   examples: |
+#     - North America
+#     - Europe
+#     - Asia
+#     - Africa
+#     - Oceania
+
+# - intent: ask_universities_in_region
+#   examples: |
+#     - What universities are in [any region](region)?
+#     - Show me universities in [any region](region)
+#     - Which universities are in [any region](region)?
+
+
+# - intent: ask_university_rank
+#   examples: |
+#     - What is the rank of [University of Cambridge](university_name)?
+#     - Show me the rank of [Oxford University](university_name)
+#     - How is [MIT](university_name) ranked?
+#     - Tell me the ranking of [University College London](university_name)
+#     - What is the position of [Imperial College London](university_name)?
+#     - What is the rank of [SLITT University](university_name)?
+#     - Which place does [Harvard University](university_name) hold?
+#     - How does [Stanford University](university_name) rank?
+#     - Rank of [Carnegie Mellon University](university_name)?
+#     - What rank does [University of Chicago](university_name) have?
+#     - How is [California Institute of Technology](university_name) ranked?
+#     - Where is [Princeton University](university_name) ranked in the world?
+#     - Tell me the world rank of [Yale University](university_name).
+
+
+# - regex: university_name
+#   examples: |
+#     - [Uu]niversity of \w+
+#     - [A-Za-z\s]+ University
+#     - [A-Za-z\s]+ College
+#     - [A-Za-z\s]+ School of [A-Za-z\s]+
+#     - [A-Za-z\s]+ Institute
+#     - [A-Za-z\s]+ Polytechnique
+#     - [A-Za-z\s]+ [Uu]niversity
+
+# - lookup: university_name
+#   examples: |
+#     /data/lookups/universities_lookup.txt
+
+# - intent: ask_best_ranked_university
+#   examples: |
+#     - What is the best-ranked university?
+#     - Show me the top university
+#     - Which university is ranked the highest?
+
+# - intent: provide_region
+#   examples: |
+#     - in [Europe](region)
+#     - in [North America](region)
+#     - in [Asia](region)
+# - intent: affirm
+#   examples: |
+#     - Yes
+#     - yes, please
+#     - yup
+# - intent: deny
+#   examples: |
+#     - no don't
+#     - no
+#     - no I don't want that
+
+# - intent: inform
+#   examples: |
+#     - [afghan](cuisine) food
+#     - how bout [asian oriental](cuisine)
+#     - what about [indian](cuisine) food
+#     - uh how about [turkish](cuisine) type of food
+#     - um [english](cuisine)
+#     - im looking for [tuscan](cuisine) food
+#     - id like [moroccan](cuisine) food
+#     - for ten people
+#     - 2 people
+#     - for three people
+#     - just one person
+#     - book for seven people
+#     - 2 please
+#     - nine people
+
+
+# - intent: request_restaurant
+#   examples: |
+#     - im looking for a restaurant
+#     - can i get [swedish](cuisine) food in any area
+#     - a restaurant that serves [caribbean](cuisine) food
+#     - id like a restaurant
+#     - im looking for a restaurant that serves [mediterranean](cuisine) food
+#     - can i find a restaurant that serves [chinese](cuisine)
+
+
+
+
+
+
+
 version: "3.1"
 nlu:
 - intent: greet
@@ -32,22 +191,6 @@ nlu:
   examples: |
     - how are you
     - How you doing
-- intent: find_university_rank
-  examples: |
-    - I want to find a univeristy rank
-- intent: university_info
-  examples: |
-    - [Cambridge](university)
-    - [Newcastle](university)
-    - [Harvard](university)
-    - [Oxford](university)
-    - [MIT](university)
-    - [Stanford](university)
-    - [Yale](university)
-    - [Columbia University](university)
-    - [Princeton](university)
-    - [UCLA](university)
-    - [Berkeley](university)
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -55,64 +198,6 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
     - Who are you?
-
-- lookup: region
-  examples: |
-    - North America
-    - Europe
-    - Asia
-    - Africa
-    - Oceania
-
-- intent: ask_universities_in_region
-  examples: |
-    - What universities are in [any region](region)?
-    - Show me universities in [any region](region)
-    - Which universities are in [any region](region)?
-
-
-- intent: ask_university_rank
-  examples: |
-    - What is the rank of [University of Cambridge](university_name)?
-    - Show me the rank of [Oxford University](university_name)
-    - How is [MIT](university_name) ranked?
-    - Tell me the ranking of [University College London](university_name)
-    - What is the position of [Imperial College London](university_name)?
-    - What is the rank of [SLITT University](university_name)?
-    - Which place does [Harvard University](university_name) hold?
-    - How does [Stanford University](university_name) rank?
-    - Rank of [Carnegie Mellon University](university_name)?
-    - What rank does [University of Chicago](university_name) have?
-    - How is [California Institute of Technology](university_name) ranked?
-    - Where is [Princeton University](university_name) ranked in the world?
-    - Tell me the world rank of [Yale University](university_name).
-
-
-- regex: university_name
-  examples: |
-    - [Uu]niversity of \w+
-    - [A-Za-z\s]+ University
-    - [A-Za-z\s]+ College
-    - [A-Za-z\s]+ School of [A-Za-z\s]+
-    - [A-Za-z\s]+ Institute
-    - [A-Za-z\s]+ Polytechnique
-    - [A-Za-z\s]+ [Uu]niversity
-
-- lookup: university_name
-  examples: |
-    /data/lookups/universities_lookup.txt
-
-- intent: ask_best_ranked_university
-  examples: |
-    - What is the best-ranked university?
-    - Show me the top university
-    - Which university is ranked the highest?
-
-- intent: provide_region
-  examples: |
-    - in [Europe](region)
-    - in [North America](region)
-    - in [Asia](region)
 - intent: affirm
   examples: |
     - Yes
@@ -123,32 +208,3 @@ nlu:
     - no don't
     - no
     - no I don't want that
-
-- intent: inform
-  examples: |
-    - [afghan](cuisine) food
-    - how bout [asian oriental](cuisine)
-    - what about [indian](cuisine) food
-    - uh how about [turkish](cuisine) type of food
-    - um [english](cuisine)
-    - im looking for [tuscan](cuisine) food
-    - id like [moroccan](cuisine) food
-    - for ten people
-    - 2 people
-    - for three people
-    - just one person
-    - book for seven people
-    - 2 please
-    - nine people
-
-
-- intent: request_restaurant
-  examples: |
-    - im looking for a restaurant
-    - can i get [swedish](cuisine) food in any area
-    - a restaurant that serves [caribbean](cuisine) food
-    - id like a restaurant
-    - im looking for a restaurant that serves [mediterranean](cuisine) food
-    - can i find a restaurant that serves [chinese](cuisine)
-
-

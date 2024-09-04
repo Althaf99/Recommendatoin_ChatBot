@@ -64,4 +64,4 @@ rules:
 - rule: give the full detail of university when the user ask.
   steps:
     - intent: university_full_detail_request
-    - action: utter_university_full_details
+    - action: action_provide_university_details

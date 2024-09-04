@@ -3,10 +3,10 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import pandas as pd
 from rasa_sdk.events import SlotSet
-from fuzzywuzzy import process
+from fuzzywuzzy import fuzz, process
 
 
-df = pd.read_csv('/Users/althafazad/Documents/Personal Projects/Recommendatoin_ChatBot/actions/universities.csv')
+df = pd.read_csv('/Users/althafazad/Documents/Personal Projects/Recommendatoin_ChatBot/actions/uk_universities.csv')
 
 class ActionDynamicGreet(Action):
 
@@ -151,3 +151,49 @@ class ActionFetchBestRankedUniversity(Action):
         except Exception as e:
             print(f"Error fetching best-ranked university: {e}")
             return None
+
+
+class ActionProvideUniversityDetails(Action):
+
+    def name(self) -> Text:
+        return "action_provide_university_details"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Extract university name entity from the latest user message
+        university_name = next(tracker.get_latest_entity_values("university_name"), None)
+        print("university_name", university_name)
+        if university_name:
+            # Fetch details from CSV file
+            university_details = self.get_university_details(university_name)
+            
+            if university_details:
+                response = (f"The {university_name} is located {university_details['region']} "
+                            f"holding the {university_details['rank']} in the UK. "
+                            f"For more details, visit their official webpage {university_details['Website']}.")
+            else:
+                response = f"Sorry, I couldn't find details for {university_name}. Please check the name and try again."
+        else:
+            response = "Please provide a university name."
+
+        dispatcher.utter_message(text=response)
+
+        return []
+
+    def get_university_details(self, university_name: Text) -> Dict[Text, Any]:
+        all_universities = df['University_name'].tolist()
+        
+        best_match, score = process.extractOne(university_name, all_universities, scorer=fuzz.token_sort_ratio)
+        
+        if score >= 80:
+            university_info = df[df['University_name'] == best_match]
+            if not university_info.empty:
+                details = university_info.iloc[0]
+                return {
+                    'region': details['Region'],
+                    'rank': details['UK_rank'],
+                    'Website': details['Website']  # Ensure your CSV has a column for the URL
+                }
+        return {}

@@ -208,3 +208,20 @@ nlu:
     - no don't
     - no
     - no I don't want that
+
+- intent: university_full_detail_request
+  examples: |
+    - Give me the full details of [Cambridge University](university_name)?
+    - I need complete information on [Oxford University](university_name)
+    - Provide all details for [Harvard University](university_name)
+    - What are the details of [Stanford University](university_name)?
+    - Show me all the information about [Imperial College London](university_name)
+- regex: university_name
+  examples: |
+    - [Uu]niversity of \w+
+    - [A-Za-z\s]+ University
+    - [A-Za-z\s]+ College
+    - [A-Za-z\s]+ School of [A-Za-z\s]+
+    - [A-Za-z\s]+ Institute
+    - [A-Za-z\s]+ Polytechnique
+    - [A-Za-z\s]+ [Uu]niversity

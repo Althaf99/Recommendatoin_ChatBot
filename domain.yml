@@ -138,9 +138,22 @@ intents:
 - currentStatus
 - affirm
 - deny
+- university_full_detail_request
+
+entities:
+- university_name
+
+slots:
+  university_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: university_name
 
 actions:
 - action_dynamic_greet
+- action_provide_university_details
 responses:
   utter_greet:
   - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.
@@ -150,6 +163,8 @@ responses:
   - text: I am a bot, created by M.Shakir.
   utter_current_status:
   - text: I'm good, How can i help you?.
+  utter_university_full_details:
+  - text: I'm looking for the {university_name} details
 
 
 session_config:

@@ -65,3 +65,16 @@ rules:
   steps:
     - intent: university_full_detail_request
     - action: action_provide_university_details
+
+- rule: give the list of universities in the region.
+  steps:
+    - intent: university_list_on_region_request
+    - action: action_provide_university_list_on_region
+    
+- rule: Ask for region if not provided
+  condition:
+    - slot_was_set:
+        - region: null
+  steps:
+    - intent: find_best_university
+    - action: action_ask_region

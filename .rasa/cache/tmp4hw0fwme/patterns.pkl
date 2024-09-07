@@ -1,6 +1,0 @@
-[
-  {
-    "name": "university",
-    "pattern": "(\\bCambridge\\b|\\bNewcastle\\b|\\bHarvard\\b|\\bOxford\\b|\\bMIT\\b|\\bStanford\\b|\\bYale\\b|\\bColumbia\\ University\\b|\\bPrinceton\\b|\\bUCLA\\b|\\bBerkeley\\b|\\bUniversity\\ of\\ Tokyo\\b|\\betc\\.\\b)"
-  }
-]

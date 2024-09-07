@@ -54,9 +54,21 @@ stories:
     - intent: currentStatus
     - action: utter_current_status
 
-
-
 - story: bot challenge
   steps:
     - intent: bot_challenge
     - action: utter_iamabot
+
+- story: Find best university in a specific region
+  steps:
+    - intent: find_best_university
+    - action: action_ask_region
+    - intent: inform_region
+    - action: action_provide_best_university
+
+- story: Find best university with provided region
+  steps:
+    - intent: find_best_university
+      entities:
+        - region: "East of England"
+    - action: action_provide_best_university

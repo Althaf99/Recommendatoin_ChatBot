@@ -193,11 +193,25 @@ nlu:
     - How you doing
 - intent: bot_challenge
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-    - Who are you?
+    - are you real?
+    - are you an AI?
+    - are you a machine?
+    - are you a robot?
+    - are you an actual person?
+    - are you a chatbot?
+    - are you a computer?
+    - am I chatting with a human?
+    - am I speaking to a human or a bot?
+    - am I talking to AI?
+    - am I speaking to a person?
+    - are you a real person?
+    - is this a bot conversation?
+    - are you an automated system?
+    - are you programmed?
+    - is there a human behind this?
+    - is this an AI responding to me?
+    - are you an automated responder?
+
 - intent: affirm
   examples: |
     - Yes
@@ -216,6 +230,39 @@ nlu:
     - Provide all details for [Harvard University](university_name)
     - What are the details of [Stanford University](university_name)?
     - Show me all the information about [Imperial College London](university_name)
+
+- intent: university_list_on_region_request
+  examples: |
+    - Can you list universities in [East of England](region)?
+    - Show me universities located in [South East England](region).
+    - What are the universities in [Scotland](region)?
+    - Which universities are in the [South West England](region)?
+    - Give me a list of universities in [Wales](region).
+    - Provide universities in the [North West England](region) region.
+    - Tell me all universities located in [Northern Ireland](region).
+    - I need a list of universities in [East Midlands](region).
+    - Can you provide universities in [London](region)?
+    - Universities located in [Yorkshire and the Humber](region), please.
+
+- intent: find_best_university
+  examples: |
+    - I want to find the best university
+    - Which is the best university?
+    - Find me the top university
+    - Show me the best university
+    - What is the highest-ranked university?
+    - Tell me the best university
+    - Can you find the best university?
+    - I want to find the best university in [East of England](region)
+    - find the best university in [London](region)
+    - show me the best university in [Scotland](region)
+  
+- intent: inform_region
+  examples: |
+      - [East of England](region)
+      - [London](region)
+      - [Scotland](region)
+
 - regex: university_name
   examples: |
     - [Uu]niversity of \w+

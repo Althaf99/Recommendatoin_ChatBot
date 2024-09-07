@@ -197,3 +197,83 @@ class ActionProvideUniversityDetails(Action):
                     'Website': details['Website']  # Ensure your CSV has a column for the URL
                 }
         return {}
+    
+
+class ActionProvideUniversityListOnRegion(Action):
+
+    def name(self) -> Text:
+        return "action_provide_university_list_on_region"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Extract region entity from the latest user message
+        region = next(tracker.get_latest_entity_values("region"), None)
+        print("region:", region)
+        
+        if region:
+            # Get the list of universities in the specified region
+            universities = self.get_universities_in_region(region)
+            
+            if universities:
+                university_list = ', '.join(universities)
+                response = f"The universities in {region} are: {university_list}."
+            else:
+                response = f"Sorry, I couldn't find any universities in {region}."
+        else:
+            response = "Please provide a region."
+
+        dispatcher.utter_message(text=response)
+
+        return []
+
+    def get_universities_in_region(self, region: Text) -> List[Text]:
+        # Search for universities in the given region
+        universities_in_region = df[df['Region'].str.contains(region, case=False, na=False)]
+        
+        # Return the list of university names if any are found
+        if not universities_in_region.empty:
+            return universities_in_region['University_name'].tolist()
+        return []
+    
+
+
+class ActionAskRegion(Action):
+
+    def name(self) -> Text:
+        return "action_ask_region"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        region = tracker.get_slot('region')
+        if not region:
+            dispatcher.utter_message(template="utter_ask_region")
+        return []
+
+class ActionProvideBestUniversity(Action):
+
+    def name(self) -> Text:
+        return "action_provide_best_university"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        region = tracker.get_slot('region')
+        if region:
+            # Assuming the DataFrame has columns 'Region' and 'University' with rank as an index
+            best_university = df[df['Region'].str.contains(region, case=False)].sort_values('UK_rank').iloc[0]
+            university_name = best_university['University_name']
+            
+            dispatcher.utter_message(
+                template="utter_best_university",
+                university_name=university_name,
+                region=region
+            )
+            return [SlotSet("region", region)]
+        else:
+            dispatcher.utter_message(text="Sorry, I couldn't find any universities in that region.")
+            return []

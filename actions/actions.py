@@ -42,35 +42,35 @@ class ActionUniversityRank(Action):
         return []
 
 
-class ActionFindUniversitiesByRegion(Action):
+# class ActionFindUniversitiesByRegion(Action):
 
-    def name(self) -> Text:
-        return "action_find_universities_by_region"
+#     def name(self) -> Text:
+#         return "action_find_universities_by_region"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        # Extract region entity from the user's message
-        region = tracker.get_slot("region")
+#         # Extract region entity from the user's message
+#         region = tracker.get_slot("region")
         
-        # Check if the region is not None
-        if region:
-            # Filter universities by region
-            filtered_df = df[df['region'].str.lower() == region.lower()]
+#         # Check if the region is not None
+#         if region:
+#             # Filter universities by region
+#             filtered_df = df[df['region'].str.lower() == region.lower()]
 
-            # Get the list of universities in the specified region
-            universities = filtered_df['name'].tolist()
+#             # Get the list of universities in the specified region
+#             universities = filtered_df['name'].tolist()
 
-            if universities:
-                response = f"The universities in {region} are: {', '.join(universities)}."
-            else:
-                response = f"Sorry, I couldn't find any universities in {region}."
-        else:
-            response = "Please specify a region to search for universities."
+#             if universities:
+#                 response = f"The universities in {region} are: {', '.join(universities)}."
+#             else:
+#                 response = f"Sorry, I couldn't find any universities in {region}."
+#         else:
+#             response = "Please specify a region to search for universities."
 
-        dispatcher.utter_message(text=response)
-        return []
+#         dispatcher.utter_message(text=response)
+#         return []
     
 class ActionFetchUniversityRank(Action):
 

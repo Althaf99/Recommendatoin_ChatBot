@@ -17,7 +17,7 @@ pipeline:
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
     use_word_boundaries: True
-    # number_additional_patterns: 10 
+    number_additional_patterns: 10 
   - name: RegexEntityExtractor
     use_lookup_tables: True
     use_regexes: True

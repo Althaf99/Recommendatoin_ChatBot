@@ -10,7 +10,7 @@ CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 action_endpoint = EndpointConfig(url="http://localhost:5055/webhook")
-agent = Agent.load("/Users/althafazad/Documents/Personal Projects/Recommendatoin_ChatBot/models/20240916-123319-blocky-emmentaler.tar.gz", action_endpoint=action_endpoint)
+agent = Agent.load("/Users/althafazad/Documents/Personal Projects/Recommendatoin_ChatBot/models/20240916-152048-few-quarter.tar.gz", action_endpoint=action_endpoint)
 
 @app.route('/send_message', methods=['POST'])
 async def send_message():

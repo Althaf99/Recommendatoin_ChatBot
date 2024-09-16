@@ -70,45 +70,23 @@ nlu:
     - Provide all details for [Harvard University](university_name)
     - What are the details of [Stanford University](university_name)?
     - Show me all the information about [Imperial College London](university_name)
-    - Give me the full details of [Cambridge University][{"entity": "university_name"}, {"entity": "university_name"}]
-- intent: university_list_on_region_request
-  examples: |
-    - Can you list universities in [East of England](region)?
-    - Show me universities located in [South East England](region).
-    - Which universities are in the [South West England](region)?
-    - Give me a list of universities in [Wales](region).
-    - Provide universities in the [North West England](region) region.
-    - Tell me all universities located in [Northern Ireland](region).
-    - I need a list of universities in [East Midlands](region).
-    - Universities located in [Yorkshire and the Humber](region), please.
-- intent: find_best_university
-  examples: |
-    - I want to find the best university
-    - Which is the best university?
-    - Find me the top university
-    - Show me the best university
-    - What is the highest-ranked university?
-    - Tell me the best university
-    - Can you find the best university?
-    - I want to find the best university in [East of England](region)
-    - find the best university in [London](region)
-    - show me the best university in [Scotland](region)
 
-
-
-
-
-- intent: inform_region
-  examples: |
-    - [East of England](region)
-    - [London](region)
-    - [Scotland](region)
 - regex: university_name
   examples: |
-    - [A-Za-z\s]+ College
-    - [A-Za-z\s]+ Institute
-    - [A-Za-z\s]+ Polytechnique
-    - [A-Za-z\s]+ School of [A-Za-z\s]+
-    - [A-Za-z\s]+ University
-    - [A-Za-z\s]+ [Uu]niversity
-    - [Uu]niversity of \w+
+    - (?i)[A-Za-z\s]+ College
+    - (?i)[A-Za-z\s]+ Institute
+    - (?i)[A-Za-z\s]+ Polytechnique
+    - (?i)[A-Za-z\s]+ School of [A-Za-z\s]+
+    - (?i)[A-Za-z\s]+ University
+    - (?i)[A-Za-z\s]+ [Uu]niversity
+    - (?i)[A-Za-z\s'-]+ (University|College|Institute|Polytechnique)
+    - (?i)University of [A-Za-z\s'-]+
+
+- intent: ask_minimum_ielts_score
+  examples: |
+    - What is the minimum IELTS score for [Harvard University](university_name)?
+    - Tell me the minimum IELTS score required for [Stanford University](university_name)
+    - What IELTS score do I need for [Oxford University](university_name)?
+    - Minimum IELTS score for [MIT](university_name)
+    - What is the required IELTS score for [Cambridge University](university_name)?
+

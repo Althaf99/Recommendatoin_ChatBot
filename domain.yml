@@ -4,12 +4,10 @@ intents:
 - bot_challenge
 - currentStatus
 - deny
-- find_best_university
 - goodbye
 - greet
-- inform_region
 - university_full_detail_request
-- university_list_on_region_request
+- ask_minimum_ielts_score
 entities:
 - university_name
 - region
@@ -33,6 +31,7 @@ actions:
 - action_provide_university_list_on_region
 - action_ask_region
 - action_provide_best_university
+- action_provide_minimum_ielts_score
 responses:
   utter_greet:
   - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.
@@ -50,6 +49,8 @@ responses:
   - text: The best university in {region} is {university_name}.
   utter_no_universities_found:
   - text: Sorry, I couldn't find any universities in that region.
+
+
 session_config:
   session_expiration_time: 60
-  carry_over_slots_to_new_session: false
+  carry_over_slots_to_new_session: true

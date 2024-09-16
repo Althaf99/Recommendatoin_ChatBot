@@ -1,0 +1,26 @@
+[
+  {
+    "name": "university_name",
+    "pattern": "[A-Za-z\\s]+ College"
+  },
+  {
+    "name": "university_name",
+    "pattern": "[A-Za-z\\s]+ Institute"
+  },
+  {
+    "name": "university_name",
+    "pattern": "[A-Za-z\\s]+ Polytechnique"
+  },
+  {
+    "name": "university_name",
+    "pattern": "[A-Za-z\\s]+ School of [A-Za-z\\s]+"
+  },
+  {
+    "name": "university_name",
+    "pattern": "[A-Za-z\\s]+ University"
+  },
+  {
+    "name": "university_name",
+    "pattern": "[A-Za-z\\s]+ [Uu]niversity"
+  }
+]

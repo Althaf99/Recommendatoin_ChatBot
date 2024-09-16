@@ -43,6 +43,15 @@
 
 version: "3.1"
 
+# endpoints.yml
 action_endpoint:
-  url: "http://localhost:5055/webhook"
+  url: "http://localhost:5055/webhook"  # URL for action server
+
+# socketio:
+#   url: "http://localhost:5005"  # Rasa server URL
+#   path: "/socket.io/"  # Path for Socket.IO
+
+rest:
+  # you don't need to provide a URL here if you're using the default endpoint
+  url: "http://localhost:5005/webhooks/rest/webhook"
 

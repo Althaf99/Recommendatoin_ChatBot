@@ -162,11 +162,9 @@ class ActionProvideUniversityDetails(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Extract university name entity from the latest user message
         university_name = next(tracker.get_latest_entity_values("university_name"), None)
         print("university_name", university_name)
         if university_name:
-            # Fetch details from CSV file
             university_details = self.get_university_details(university_name)
             
             if university_details:
@@ -277,3 +275,32 @@ class ActionProvideBestUniversity(Action):
         else:
             dispatcher.utter_message(text="Sorry, I couldn't find any universities in that region.")
             return []
+    
+
+
+class ActionProvideMinimumIELTSScore(Action):
+
+    def name(self) -> str:
+        return "action_provide_minimum_ielts_score"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: dict) -> list:
+        
+        # Get the university name from the user's message
+        university = next(tracker.get_latest_entity_values("university"), None)
+        
+        if not university:
+            dispatcher.utter_message(text="Please specify the university.")
+            return []
+
+        # Find the minimum IELTS score for the specified university
+        result = df[df['institution'].str.lower() == university.lower()]
+        
+        if not result.empty:
+            min_ielts_score = result['Minimum_IELTS_score'].values[0]
+            dispatcher.utter_message(text=f"The minimum IELTS score for {university} is {min_ielts_score}.")
+        else:
+            dispatcher.utter_message(text=f"Sorry, I couldn't find the minimum IELTS score for {university}.")
+
+        return []

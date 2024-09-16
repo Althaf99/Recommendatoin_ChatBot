@@ -59,16 +59,8 @@ stories:
     - intent: bot_challenge
     - action: utter_iamabot
 
-- story: Find best university in a specific region
-  steps:
-    - intent: find_best_university
-    - action: action_ask_region
-    - intent: inform_region
-    - action: action_provide_best_university
 
-- story: Find best university with provided region
+- story: Provide minimum IELTS score for a university
   steps:
-    - intent: find_best_university
-      entities:
-        - region: "East of England"
-    - action: action_provide_best_university
+    - intent: ask_minimum_ielts_score
+    - action: action_provide_minimum_ielts_score

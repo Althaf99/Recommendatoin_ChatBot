@@ -16,17 +16,15 @@ pipeline:
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
   - name: WhitespaceTokenizer
   - name: RegexFeaturizer
-    "use_word_boundaries": True
-    number_additional_patterns: 30 
-  - name: DIETClassifier
-    epochs: 100
-    constrain_similarities: true
-  # - name: RegexEntityExtractor
-  #   use_lookup_tables: True
-  #     # use regexes to extract entities
-  #   use_regexes: True
-  #     # use match word boundaries for lookup table
-  #   use_word_boundaries: True
+    use_word_boundaries: True
+    # number_additional_patterns: 10 
+  - name: RegexEntityExtractor
+    use_lookup_tables: True
+    use_regexes: True
+    use_word_boundaries: True
+  # - name: DIETClassifier
+  #   epochs: 100
+  #   constrain_similarities: true
  
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer

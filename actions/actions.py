@@ -6,7 +6,7 @@ from rasa_sdk.events import SlotSet
 from fuzzywuzzy import fuzz, process
 
 
-df = pd.read_csv('/Users/althafazad/Documents/Personal Projects/Recommendatoin_ChatBot/actions/uk_universities.csv')
+df = pd.read_csv('/actions/uk_universities.csv')
 
 class ActionDynamicGreet(Action):
 
@@ -41,37 +41,6 @@ class ActionUniversityRank(Action):
         dispatcher.utter_message(text=response)
         return []
 
-
-# class ActionFindUniversitiesByRegion(Action):
-
-#     def name(self) -> Text:
-#         return "action_find_universities_by_region"
-
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-#         # Extract region entity from the user's message
-#         region = tracker.get_slot("region")
-        
-#         # Check if the region is not None
-#         if region:
-#             # Filter universities by region
-#             filtered_df = df[df['region'].str.lower() == region.lower()]
-
-#             # Get the list of universities in the specified region
-#             universities = filtered_df['name'].tolist()
-
-#             if universities:
-#                 response = f"The universities in {region} are: {', '.join(universities)}."
-#             else:
-#                 response = f"Sorry, I couldn't find any universities in {region}."
-#         else:
-#             response = "Please specify a region to search for universities."
-
-#         dispatcher.utter_message(text=response)
-#         return []
-    
 class ActionFetchUniversityRank(Action):
 
     def name(self) -> Text:
@@ -197,59 +166,59 @@ class ActionProvideUniversityDetails(Action):
         return {}
     
 
-class ActionProvideUniversityListOnRegion(Action):
+# class ActionProvideUniversityListOnRegion(Action):
 
-    def name(self) -> Text:
-        return "action_provide_university_list_on_region"
+#     def name(self) -> Text:
+#         return "action_provide_university_list_on_region"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Extract region entity from the latest user message
-        region = next(tracker.get_latest_entity_values("region"), None)
-        print("region:", region)
+#         # Extract region entity from the latest user message
+#         region = next(tracker.get_latest_entity_values("region"), None)
+#         print("region:", region)
         
-        if region:
-            # Get the list of universities in the specified region
-            universities = self.get_universities_in_region(region)
+#         if region:
+#             # Get the list of universities in the specified region
+#             universities = self.get_universities_in_region(region)
             
-            if universities:
-                university_list = ', '.join(universities)
-                response = f"The universities in {region} are: {university_list}."
-            else:
-                response = f"Sorry, I couldn't find any universities in {region}."
-        else:
-            response = "Please provide a region."
+#             if universities:
+#                 university_list = ', '.join(universities)
+#                 response = f"The universities in {region} are: {university_list}."
+#             else:
+#                 response = f"Sorry, I couldn't find any universities in {region}."
+#         else:
+#             response = "Please provide a region."
 
-        dispatcher.utter_message(text=response)
+#         dispatcher.utter_message(text=response)
 
-        return []
+#         return []
 
-    def get_universities_in_region(self, region: Text) -> List[Text]:
-        # Search for universities in the given region
-        universities_in_region = df[df['Region'].str.contains(region, case=False, na=False)]
+    # def get_universities_in_region(self, region: Text) -> List[Text]:
+    #     # Search for universities in the given region
+    #     universities_in_region = df[df['Region'].str.contains(region, case=False, na=False)]
         
-        # Return the list of university names if any are found
-        if not universities_in_region.empty:
-            return universities_in_region['University_name'].tolist()
-        return []
+    #     # Return the list of university names if any are found
+    #     if not universities_in_region.empty:
+    #         return universities_in_region['University_name'].tolist()
+    #     return []
     
 
 
-class ActionAskRegion(Action):
+# class ActionAskRegion(Action):
 
-    def name(self) -> Text:
-        return "action_ask_region"
+#     def name(self) -> Text:
+#         return "action_ask_region"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        region = tracker.get_slot('region')
-        if not region:
-            dispatcher.utter_message(template="utter_ask_region")
-        return []
+#         region = tracker.get_slot('region')
+#         if not region:
+#             dispatcher.utter_message(template="utter_ask_region")
+#         return []
 
 class ActionProvideBestUniversity(Action):
 

@@ -1,3 +1,4 @@
+import base64
 import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -6,53 +7,61 @@ from werkzeug.security import generate_password_hash
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
+CORS(app)
 
-# MongoDB Atlas connection string
 MONGO_URI = 'mongodb+srv://mohamedalthaf872:MgDIcs8GevSto9Rz@immigrationchatbotclust.nuvxh.mongodb.net/?retryWrites=true&w=majority&appName=immigrationChatBotCluster'
-client = MongoClient(MONGO_URI)
-db = client['user_database']
+
+client = MongoClient(MONGO_URI,tls=True,
+    tlsAllowInvalidCertificates=True)
+db = client['immigrationChatBotCluster']
 users_collection = db['users']
 
-# Directory to save uploaded pictures
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-# Allowed extensions for picture upload
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+@app.route('/test', methods=['GET'])
+def test_endpoint():
+    return jsonify({'message': 'The server is running and connected successfully!'}), 200
+
 @app.route('/register', methods=['POST'])
 def register_user():
-    print("HELOOL  WORLDSS")
-    username = request.form.get('username')
-    email = request.form.get('email')
-    password = request.form.get('password')
-    # picture = request.files.get('picture')
+    data = request.get_json()
 
-    # if not email or not password or not picture:
-    #     return jsonify({'error': 'Please provide email, password, and picture'}), 400
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    picture_data = data.get('picture')
+
+    if not email or not password or not picture_data:
+        return jsonify({'error': 'Please provide email, password, and picture'}), 400
 
     if users_collection.find_one({'email': email}):
-        return jsonify({'error': 'Email already exists'}), 409
+        return jsonify({'message': 'Email already exists'}), 201
 
-    # if allowed_file(picture.filename):
-    #     filename = secure_filename(picture.filename)
-    #     picture_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    #     picture.save(picture_path)
-    # else:
-        return jsonify({'error': 'Invalid file type'}), 400
+    try:
+        picture_data = picture_data.split(',')[1]
+        picture_bytes = base64.b64decode(picture_data)
+    except Exception as e:
+        return jsonify({'error': 'Invalid picture data'}), 400
+
+    filename = f"{username}_profile_picture.png"
+    picture_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    with open(picture_path, 'wb') as f:
+        f.write(picture_bytes)
 
     hashed_password = generate_password_hash(password)
 
     user = {
         'email': email,
         'password': hashed_password,
-        # 'picture': picture_path,
+        'picture': picture_path,
         'username': username
     }
 

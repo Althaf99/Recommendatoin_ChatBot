@@ -1,0 +1,11 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohubSoCMgILkksKS2urY0FANU0HvU=": "utter_current_status",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohubSoCMgILkksKS2uJWBWaUlJalE8VEt8MUQPISNjARsvP2Y=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3xEohKb8kPjkjMScnNS89tbY2FgDS8h61": "utter_iamabot",
+    "eJyFjEEKgDAMBL+SB/iCfkUkxBI0UFNpUy+lfzeg9952YHbWPhbod+EHKZpkDdC/gUoXB/ghSTVWd1vl4o6oowXYs2E8KSXWg8ek1cy4oNBFfpu2thdA+Tu9": "action_listen",
+    "eJwtisEJwCAMAFfJAJ3AVUoJInmEmigm9iPu3kD7u+PuXPuA1Qc9mItz0wTrA9QslOCXyuak8U6jEQ9rqEe2G4WVZQoyVTe00gbtfb0ecyMD": "action_provide_minimum_ielts_score",
+    "eJyNjUEKwCAMBL/iA/oCv1JKEJtDqIli1Iv49wbaYw+97bDD7j7X5mapOCDERlm8m08ACYzevZBIG4q5XbGaQ2LYrNYLmIS4MxCmpqAxV1z/VkvNg078XPh/ddx97k0V": "action_listen"
+  }
+}

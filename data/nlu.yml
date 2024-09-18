@@ -1,92 +1,75 @@
 version: "3.1"
+
 nlu:
 - intent: greet
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - Hello
+    - Hello!
+    - Hi there!
+    - Good morning
+    - Hey
+    - Greetings
+
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-    - exit
-- intent: currentStatus
-  examples: |
-    - how are you
-    - How you doing
+    - Goodbye
+    - See you later
+    - Bye
+    - Have a nice day
+    - Take care
+
 - intent: bot_challenge
   examples: |
-    - are you real?
-    - are you an AI?
-    - are you a machine?
-    - are you a robot?
-    - are you an actual person?
-    - are you a chatbot?
-    - are you a computer?
-    - am I chatting with a human?
-    - am I speaking to a human or a bot?
-    - am I talking to AI?
-    - am I speaking to a person?
-    - are you a real person?
-    - is this a bot conversation?
-    - are you an automated system?
-    - are you programmed?
-    - is there a human behind this?
-    - is this an AI responding to me?
-    - are you an automated responder?
-- intent: affirm
-  examples: |
-    - Yes
-    - yes, please
-    - yup
-- intent: deny
-  examples: |
-    - no don't
-    - no
-    - no I don't want that
+    - Are you real?
+    - Are you a bot?
+    - Are you a robot?
+    - Is this an AI?
+    - Am I talking to a machine?
+
 - intent: university_full_detail_request
   examples: |
-    - Give me the full details of [Cambridge University](university_name)?
-    - I need complete information on [Oxford University](university_name)
-    - Provide all details for [Harvard University](university_name)
-    - What are the details of [Stanford University](university_name)?
-    - Show me all the information about [Imperial College London](university_name)
-
-- regex: university_name
-  examples: |
-    - (?i)[A-Za-z\s]+ College
-    - (?i)[A-Za-z\s]+ Institute
-    - (?i)[A-Za-z\s]+ Polytechnique
-    - (?i)[A-Za-z\s]+ School of [A-Za-z\s]+
-    - (?i)[A-Za-z\s]+ University
-    - (?i)[A-Za-z\s]+ [Uu]niversity
-    - (?i)[A-Za-z\s'-]+ (University|College|Institute|Polytechnique)
-    - (?i)University of [A-Za-z\s'-]+
+    - Tell me more about [University of Cambridge](university_name)
+    - I want details on [University of Oxford](university_name)
+    - What can you tell me about [Imperial College London](university_name)?
+    - Give me information on [London School of Economics](university_name)
 
 - intent: ask_minimum_ielts_score
   examples: |
-    - What is the minimum IELTS score for [Harvard University](university_name)?
-    - Tell me the minimum IELTS score required for [Stanford University](university_name)
-    - What IELTS score do I need for [Oxford University](university_name)?
-    - Minimum IELTS score for [MIT](university_name)
-    - What is the required IELTS score for [Cambridge University](university_name)?
+    - What is the minimum IELTS score required?
+    - Tell me the IELTS score needed for admission
+    - What IELTS score do I need?
+    - Minimum IELTS score for [University of Cambridge](university_name)?
 
+- intent: ask_visa_requirements
+  examples: |
+    - What are the visa requirements for [Skilled Worker Visa](visa_type)?
+    - Tell me about the requirements for [Student Visa](visa_type)
+    - What do I need for a [Tier 2 Visa](visa_type)?
+    - Give me the details for [Work Visa](visa_type)
+
+- intent: ask_best_university
+  examples: |
+    - What is the best university in [East of England](region)?
+    - Show me the top university in [London](region)
+    - Which university is best in [Scotland](region)?
+    - Find the best university in [South East](region)
+
+- intent: currentStatus
+  examples: |
+    - How are you?
+    - What’s up?
+    - How are you doing?
+    - What’s your status?
+
+- intent: deny
+  examples: |
+    - No
+    - Not interested
+    - I don't want that
+    - I refuse
+    - Never mind
+  
+regex:
+  - name: university_name
+    pattern: "University of [A-Za-z]+"
+  - name: region
+    pattern: "[A-Za-z]+"

@@ -6,8 +6,14 @@ assistant_id: 20240825-214304-vertical-bend
 language: en
 
 pipeline: 
-
+  # - name: spacy.SpacyNLP
   - name: WhitespaceTokenizer
+  # - name: spacy.SpacyTokenizer
+  # - name: spacy.SpacyFeaturize
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "rasa/LaBSE"
+    cache_dir: null
   - name: RegexFeaturizer
     use_word_boundaries: True
     number_additional_patterns: 10 

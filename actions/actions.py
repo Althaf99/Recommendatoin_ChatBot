@@ -13,7 +13,6 @@ class ActionHandleBotChallenge(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Respond to the bot challenge intent
         dispatcher.utter_message(text="I am a bot, created by M.Shakir.")
         
         return []
@@ -28,7 +27,6 @@ class ActionDynamicGreet(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        # Get the current hour to determine the time of day
         from datetime import datetime
         current_hour = datetime.now().hour
         if current_hour < 12:
@@ -38,10 +36,8 @@ class ActionDynamicGreet(Action):
         else:
             greeting = "Good evening!"
 
-        # Generate a dynamic greeting message
         message = f"{greeting} I am here to help you get the university details in the United Kingdom."
 
-        # Send the message to the user
         dispatcher.utter_message(text=message)
 
         return []
@@ -59,7 +55,6 @@ class ActionProvideUniversityDetails(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         university_name = tracker.get_slot('university_name')
-        # Fetch university details from CSV
         university_details = self.df_universities[self.df_universities['University_name'].str.contains(university_name, case=False, na=False)]
         if not university_details.empty:
             details = university_details.iloc[0].to_dict()
@@ -89,7 +84,6 @@ class ActionProvideMinimumIELTSScore(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         university_name = tracker.get_slot('university_name')
-        # Fetch IELTS score from CSV
         university_details = self.df_universities[self.df_universities['University_name'].str.contains(university_name, case=False, na=False)]
         if not university_details.empty:
             score = university_details.iloc[0]['Minimum_IELTS_score']
@@ -112,7 +106,6 @@ class ActionProvideVisaRequirements(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         visa_type = tracker.get_slot('visa_type')
-        # Fetch visa requirements from CSV
         visa_details = self.df_visas[self.df_visas['Accepetd Visa\'s'].str.contains(visa_type, case=False, na=False)]
         if not visa_details.empty:
             requirements = visa_details.iloc[0].dropna().to_dict()
@@ -140,7 +133,6 @@ class ActionProvideBestUniversity(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         region = tracker.get_slot('region')
-        # Fetch best university based on region
         universities_in_region = self.df_universities[self.df_universities['Region'].str.contains(region, case=False, na=False)]
         if not universities_in_region.empty:
             best_university = universities_in_region.sort_values(by='UK_rank').iloc[0]['University_name']

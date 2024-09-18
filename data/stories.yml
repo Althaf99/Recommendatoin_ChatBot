@@ -1,66 +1,32 @@
-# version: "3.1"
-
-# stories:
-
-# - story: asking university rank
-#   steps:
-#   - intent: find_university_rank
-#   - action: utter_ask_university_info
-#   - intent: university_info
-#   - action: utter_finding_University_rank
-#   - action: action_find_university_rank
-#   - action: utter_ask_additional_informations
-#   - action: utter_you_are_welcome
-
-# - story: Find universities by region
-#   steps:
-#   - intent: ask_universities_in_region
-#   - action: action_find_universities_by_region
-
-# - story: current status
-#   steps:
-#     - intent: currentStatus
-#     - action: utter_current_status
-
-
-
-# - story: bot challenge
-#   steps:
-#     - intent: bot_challenge
-#     - action: utter_iamabot
-
-
-# - story: Ask for best-ranked university with region follow-up
-#   steps:
-#   - intent: ask_best_ranked_university
-#   - action: action_ask_for_region
-#   - intent: provide_region
-#     entities:
-#       - region: "Europe"
-#   - action: action_fetch_best_ranked_university
-
-
-
-
-
-
-
-
 version: "3.1"
 
 stories:
-- story: current status
+- story: Provide university details
+  steps:
+    - intent: university_full_detail_request
+    - action: action_provide_university_details
+
+- story: Current status
   steps:
     - intent: currentStatus
     - action: utter_current_status
 
-- story: bot challenge
+- story: Bot challenge
   steps:
     - intent: bot_challenge
     - action: utter_iamabot
 
-
-- story: Provide minimum IELTS score for a university
+- story: Provide minimum IELTS score
   steps:
     - intent: ask_minimum_ielts_score
     - action: action_provide_minimum_ielts_score
+
+- story: Ask visa requirements
+  steps:
+    - intent: ask_visa_requirements
+    - action: action_provide_visa_requirements
+
+- story: Ask for best university
+  steps:
+    - intent: ask_best_university
+    - action: action_provide_best_university

@@ -43,7 +43,7 @@ def register_user():
         return jsonify({'error': 'Please provide email, password, and picture'}), 400
 
     if users_collection.find_one({'email': email}):
-        return jsonify({'message': 'Email already exists'}), 201
+        return jsonify({'error': 'Email already exists'}), 400
 
     try:
         picture_data = picture_data.split(',')[1]
@@ -67,6 +67,19 @@ def register_user():
 
     users_collection.insert_one(user)
     return jsonify({'message': 'User registered successfully!'}), 201
+
+
+
+@app.route('/users', methods=['GET'])
+def get_users():
+    try:
+        users_collection = client.db.users
+        users = list(users_collection.find({}, {'_id': 0}))  # Exclude _id field
+        return jsonify(users), 200
+    except Exception as e:
+        print(f"Error retrieving users: {e}")
+        return jsonify({"error": "An error occurred while retrieving users"}), 500
+
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

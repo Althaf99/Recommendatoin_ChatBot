@@ -1,4 +1,5 @@
-version: '3.1'
+version: "3.1"
+
 intents:
 - affirm
 - bot_challenge
@@ -8,9 +9,14 @@ intents:
 - greet
 - university_full_detail_request
 - ask_minimum_ielts_score
+- ask_visa_requirements
+- ask_best_university
+
 entities:
 - university_name
 - region
+- visa_type
+
 slots:
   university_name:
     type: text
@@ -24,32 +30,45 @@ slots:
     mappings:
     - type: from_entity
       entity: region
+  visa_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: visa_type
+
 actions:
 - action_provide_university_details
-- utter_goodbye
-- action_dynamic_greet
-- action_provide_university_list_on_region
-- action_ask_region
-- action_provide_best_university
 - action_provide_minimum_ielts_score
+- action_provide_visa_requirements
+- action_provide_best_university
+- action_handle_bot_challenge
+- action_dynamic_greet
+- action_ask_region
+- utter_goodbye
+- utter_current_status
+- utter_iamabot
+- utter_university_full_details
+- utter_ask_region
+- utter_best_university
+
 responses:
   utter_greet:
-  - text: Hello!. I am here to help you to get the university details in Unighted Kingdom.
+  - text: Hello! I am here to help you get the university details in the United Kingdom.
   utter_goodbye:
-  - text: Bye, See you Later.
+  - text: Bye, see you later.
   utter_iamabot:
-  - text: I am a bot, created by M.Shakir.
+  - text: I am a bot, created by M. Shakir.
   utter_current_status:
-  - text: I'm good, How can i help you?.
+  - text: I'm good, How can I help you?
   utter_university_full_details:
-  - text: I'm looking for the {university_name} details
+  - text: I'm looking for the {university_name} details.
   utter_ask_region:
   - text: In which region would you like to find the best university?
   utter_best_university:
   - text: The best university in {region} is {university_name}.
   utter_no_universities_found:
   - text: Sorry, I couldn't find any universities in that region.
-
 
 session_config:
   session_expiration_time: 60

@@ -67,3 +67,9 @@ nlu:
     - I don't want that
     - I refuse
     - Never mind
+  
+regex:
+  - name: university_name
+    pattern: "University of [A-Za-z]+"
+  - name: region
+    pattern: "[A-Za-z]+"

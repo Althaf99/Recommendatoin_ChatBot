@@ -38,7 +38,7 @@ def register_user():
     if users_collection.find_one({'email': email}):
         return jsonify({'error': 'Email already exists'}), 400
 
-    hashed_password = generate_password_hash(password, method='sha256')
+    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
 
     users_collection.insert_one({
         'username': username,
